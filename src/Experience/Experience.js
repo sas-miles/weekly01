@@ -33,9 +33,10 @@ export default class Experience{
         this.scene = new THREE.Scene()
         this.resources = new Resources(sources)
         this.camera = new Camera()
-        this.controls = new Controls()
+        
         this.renderer = new Renderer()
         this.world = new World()
+        this.controls = new Controls()
 
 
         //Sizes Resize Event
@@ -46,6 +47,7 @@ export default class Experience{
         //Time Tick Event
         this.time.on('tick', () => {
             this.update()
+            this.controls.update();
         })
     }
 
@@ -55,7 +57,6 @@ export default class Experience{
     }
 
     update(){
-        this.camera.update()
         // this.controls.update()
         this.world.update()
         this.renderer.update()
@@ -82,7 +83,6 @@ export default class Experience{
             }
         })
 
-        this.camera.controls.dispose()
         this.renderer.instance.dispose()
 
         if(this.debug.active){

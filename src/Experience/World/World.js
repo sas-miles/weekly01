@@ -3,6 +3,7 @@ import Environment from './Environment.js'
 import Fox from './Fox.js'
 import Floor from './Floor.js'
 import Plane from './Plane.js'
+import Building from './Building.js'
 
 
 export default class World {
@@ -15,8 +16,7 @@ export default class World {
             console.log('Resources ready')
 
             //Setup
-            this.floor = new Floor()
-            this.fox = new Fox()
+            this.building = new Building()
             this.environment = new Environment()
             
         }) 
